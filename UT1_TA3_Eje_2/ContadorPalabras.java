@@ -1,8 +1,14 @@
 package UT1_TA3_Eje_2;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class ContadorPalabras {
 
-  public static void contarPalabras(String oracion) {
+  public static int contarPalabras(String oracion) {
     int contadorPalabras = 0;
     for (int i = 0; i < oracion.length(); i++) {
       char caracter = oracion.charAt(i);
@@ -17,7 +23,7 @@ public class ContadorPalabras {
         contadorPalabras++;
       }
     }
-    System.out.println(contadorPalabras);
+    return contadorPalabras;
   }
 
   public static void contarVocalesConsonantes(String frase) {
@@ -63,6 +69,34 @@ public class ContadorPalabras {
       }
     }
     System.out.println(contadorPalabras);
+  }
+
+  public String[] obtenerLineas(String archivo) throws IOException {
+    try {
+      File file = new File(archivo);
+      FileReader fr = new FileReader(file);
+      BufferedReader br = new BufferedReader(fr);
+      String linea = br.readLine();
+      String[] lineas = new String[100];
+      int contador = 0;
+      while (linea != null) {
+        lineas[contador] = linea;
+        contador++;
+        linea = br.readLine();
+      }
+      return lineas;
+    } catch (FileNotFoundException e) {
+      System.out.println("No se encontró el archivo");
+      return null;
+    }
+  }
+
+  public int cantPalabras(String[] lineasArchivo) {
+    int contadorPalabras = 0;
+    for (String linea : lineasArchivo) {
+      contarPalabras(linea);
+    }
+    return contadorPalabras;
   }
 
 }
