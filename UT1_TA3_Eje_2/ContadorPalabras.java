@@ -5,13 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-<<<<<<< HEAD
-import java.util.Arrays;
-=======
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
->>>>>>> c1be8a3 (ej 10)
 
 public class ContadorPalabras {
 
@@ -92,11 +88,7 @@ public class ContadorPalabras {
         linea = br.readLine();
       }
       //return lineas;
-<<<<<<< HEAD
-      return Arrays.copyOfRange(lineas, 0 , contador);
-=======
       return Arrays.copyOfRange(lineas, 0, contador);
->>>>>>> c1be8a3 (ej 10)
     } catch (FileNotFoundException e) {
       System.out.println("No se encontró el archivo");
       return null;
