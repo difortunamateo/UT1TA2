@@ -5,7 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+>>>>>>> c1be8a3 (ej 10)
 
 public class ContadorPalabras {
 
@@ -86,7 +92,11 @@ public class ContadorPalabras {
         linea = br.readLine();
       }
       //return lineas;
+<<<<<<< HEAD
       return Arrays.copyOfRange(lineas, 0 , contador);
+=======
+      return Arrays.copyOfRange(lineas, 0, contador);
+>>>>>>> c1be8a3 (ej 10)
     } catch (FileNotFoundException e) {
       System.out.println("No se encontró el archivo");
       return null;
@@ -99,6 +109,21 @@ public class ContadorPalabras {
       contadorPalabras += contarPalabras(linea);
     }
     return contadorPalabras;
+  }
+
+  public static String[] palabrasComunes(String[] palabras1, String[] palabras2) {
+    List<String> comunes = new ArrayList<>();
+
+    for (String palabra1 : palabras1) {
+      for (String palabra2 : palabras2) {
+        if (palabra1.equals(palabra2)) {
+          comunes.add(palabra1);
+          break;
+        }
+      }
+    }
+
+    return comunes.toArray(new String[0]);
   }
 
 }
