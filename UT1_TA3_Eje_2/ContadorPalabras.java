@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ContadorPalabras {
 
@@ -84,7 +85,8 @@ public class ContadorPalabras {
         contador++;
         linea = br.readLine();
       }
-      return lineas;
+      //return lineas;
+      return Arrays.copyOfRange(lineas, 0 , contador);
     } catch (FileNotFoundException e) {
       System.out.println("No se encontró el archivo");
       return null;
@@ -94,7 +96,7 @@ public class ContadorPalabras {
   public int cantPalabras(String[] lineasArchivo) {
     int contadorPalabras = 0;
     for (String linea : lineasArchivo) {
-      contarPalabras(linea);
+      contadorPalabras += contarPalabras(linea);
     }
     return contadorPalabras;
   }
