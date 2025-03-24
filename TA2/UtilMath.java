@@ -4,7 +4,20 @@ public class UtilMath {
 
   public static void main(String[] args) {
     sum(9);
+    System.out.println("Factorial de 3: " + factorial(3));
   }
+
+  public static int factorial(int num) {
+        if (num < 0) {
+            System.out.println("El número debe ser mayor o igual a cero.");
+            return -1; //Indicacion de que hubo un error
+        }
+        int result = 1;
+        for (int i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
 
   public static void sum(int num){
     int i = 0;
